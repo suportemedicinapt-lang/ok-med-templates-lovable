@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Medical Professional Color Palette */
+    --background: 210 25% 98%;
+    --foreground: 215 35% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 35% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 35% 15%;
+
+    /* Deep Navy Blue - Trust & Professionalism */
+    --primary: 215 50% 23%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Soft Teal - Health & Vitality */
+    --secondary: 175 35% 92%;
+    --secondary-foreground: 175 45% 25%;
+
+    --muted: 210 20% 95%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Teal Accent - Vascular Health */
+    --accent: 175 45% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 175 45% 40%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens for medical theme */
+    --hero-gradient: linear-gradient(135deg, hsl(215 50% 23%) 0%, hsl(215 45% 30%) 50%, hsl(175 35% 35%) 100%);
+    --card-shadow: 0 4px 24px -4px hsl(215 50% 23% / 0.08);
+    --card-shadow-hover: 0 8px 32px -4px hsl(215 50% 23% / 0.15);
+    --glow-accent: 0 0 40px hsl(175 45% 40% / 0.2);
+
+    /* Typography */
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Inter', sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 35% 10%;
+    --foreground: 210 25% 95%;
+
+    --card: 215 35% 13%;
+    --card-foreground: 210 25% 95%;
+
+    --popover: 215 35% 13%;
+    --popover-foreground: 210 25% 95%;
+
+    --primary: 175 45% 50%;
+    --primary-foreground: 215 35% 10%;
+
+    --secondary: 215 30% 18%;
+    --secondary-foreground: 210 25% 90%;
+
+    --muted: 215 30% 18%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 175 45% 45%;
+    --accent-foreground: 215 35% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 30% 20%;
+    --input: 215 30% 20%;
+    --ring: 175 45% 50%;
+
+    --hero-gradient: linear-gradient(135deg, hsl(215 35% 8%) 0%, hsl(215 35% 15%) 50%, hsl(175 30% 20%) 100%);
+    --card-shadow: 0 4px 24px -4px hsl(0 0% 0% / 0.3);
+    --card-shadow-hover: 0 8px 32px -4px hsl(175 45% 50% / 0.2);
+    --glow-accent: 0 0 40px hsl(175 45% 50% / 0.15);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--hero-gradient);
+  }
+
+  .bg-hero-gradient {
+    background: var(--hero-gradient);
+  }
+
+  .shadow-card {
+    box-shadow: var(--card-shadow);
+  }
+
+  .shadow-card-hover {
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+
+  .placeholder-text {
+    @apply text-accent font-medium italic;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
